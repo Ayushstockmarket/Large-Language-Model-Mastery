@@ -1,1 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Large Language Model Mastery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f6fa;
+      display: flex;
+      height: 100vh;
+    }
+    aside {
+      width: 280px;
+      background-color: #fff;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    header {
+      padding: 20px;
+      font-weight: 600;
+      font-size: 18px;
+    }
+    main {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 6px;
+    }
+    li:hover, .active {
+      background-color: #e3e7fe;
+      font-weight: 600;
+    }
+    .module {
+      margin-top: 20px;
+    }
+    .video-box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    iframe {
+      width: 100%;
+      height: 320px;
+      border: none;
+      margin-top: 15px;
+    }
+    @media (max-width: 900px) {
+      body {
+        flex-direction: column;
+      }
+      aside {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+      }
+      main {
+        padding: 10px;
+      }
+      .video-box {
+        padding: 10px;
+      }
+      iframe {
+        height: 220px;
+      }
+    }
+    @media (max-width: 600px) {
+      aside {
+        padding: 5px;
+      }
+      .module {
+        margin-top: 10px;
+      }
+      .video-box {
+        padding: 5px;
+      }
+      iframe {
+        height: 160px;
+      }
+      header {
+        font-size: 16px;
+        padding: 10px;
+      }
+    }
+    .module {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border-radius: 8px;
+      background: #f8faff;
+      margin-bottom: 18px;
+      padding: 12px 10px;
+      transition: box-shadow 0.2s;
+    }
+    .module:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    li {
+      transition: background 0.2s, font-weight 0.2s;
+    }
+    li.active {
+      background: linear-gradient(90deg, #e3e7fe 60%, #f8faff 100%);
+      color: #2a3cff;
+      font-weight: 700;
+      box-shadow: 0 1px 4px rgba(42,60,255,0.08);
+    }
+    li:active {
+      background: #d1d8ff;
+    }
+    .video-box {
+      max-width: 700px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <header>Large Language Model Mastery</header>
+    <div class="module">
+      <div><strong>Module 1:</strong> Introduction to LLMs</div>
+      <ul>
+        <li onclick="showVideo('What are LLMs', 'LLM_FOUNDATIONS_1')">What are LLMs - Large Language Model Mastery AI Foundations</li>
+        <li onclick="showVideo('Use cases for LLMs', 'LLM_FOUNDATIONS_2')">Use cases for LLMs - Large Language Model Mastery AI Foundations</li>
+      </ul>
+    </div>
+    <div class="module">
+      <div><strong>Module 2:</strong> Beginner Prompting</div>
+      <ul>
+        <li onclick="showVideo('What is a prompt?', 'S2M1_PROMPT')">S2M1 What is a 'prompt'</li>
+        <li onclick="showVideo('Bulletproof Prompt Sequence', 'S2M2_BULLETPROOF')">S2M2 - Bulletproof Prompt Sequence</li>
+        <li onclick="showVideo('Stating Your Goals', 'S2M3_GOALS')">S2M3 - Stating Your Goals</li>
+        <li onclick="showVideo('Providing Context', 'S2M4_CONTEXT')">S2M4 - Providing Context</li>
+        <li onclick="showVideo('Giving Actions', 'S2M5_ACTIONS')">S2M5 - Giving actions</li>
+        <li onclick="showVideo('Output Formatting', 'S2M6_FORMATTING')">S2M6 - Output formatting</li>
+      </ul>
+    </div>
+    <div class="module">
+      <div><strong>Module 3:</strong> Follow-up Prompting</div>
+      <ul>
+        <li onclick="showVideo('What is follow-up prompting?', 'S3M1_FOLLOWUP')">S3M1 - What is follow-up prompting</li>
+        <li onclick="showVideo('Analyzing follow up prompts', 'S3M2_ANALYZING')">S3M2 - Analyzing follow up prompts</li>
+        <li onclick="showVideo('Understanding follow up prompts', 'S3M3_UNDERSTANDING')">S3M3 - Understanding follow up prompts</li>
+        <li onclick="showVideo('Expanding follow-up prompts', 'S3M4_EXPANDING')">S3M4 - Expanding follow-up prompts</li>
+      </ul>
+    </div>
+    <div class="module">
+      <div><strong>Module 4:</strong> Intermediate Prompting</div>
+      <ul>
+        <li onclick="showVideo('Introduction to intermediate prompting', 'S4M1_INTRO')">S4M1 - Introduction to intermediate prompting</li>
+        <li onclick="showVideo('Styles and tones', 'S4M2_STYLES')">S4M2 - Styles and tones</li>
+        <li onclick="showVideo('Generated knowledge prompting', 'S4M3_KNOWLEDGE')">S4M3 - Generated knowledge prompting</li>
+        <li onclick="showVideo('Assigning roles', 'S4M4_ROLES')">S4M4 - Assigning roles</li>
+      </ul>
+    </div>
+    <div class="module">
+      <div><strong>Module 5:</strong> Data Analysis (ChatGPT)</div>
+      <ul>
+        <li onclick="showVideo('Introduction to Data Analysis', 'S13M1_INTRO')">Introduction to Data Analysis</li>
+        <li onclick="showVideo('5 Ways to View Data', 'S13M2_VIEW')">S13M2 - 5 Ways to View Data</li>
+        <li onclick="showVideo('Comparing data', 'S13M3_COMPARE')">S13M3 - Comparing data</li>
+        <li onclick="showVideo('Showing parts of a whole', 'S13M5_PARTS')">S13M5 - Showing parts of a whole</li>
+        <li onclick="showVideo('Viewing Data Spreads', 'S13M6_SPREADS')">S13M6 - Viewing Data Spreads</li>
+        <li onclick="showVideo('Trends over time', 'S13M7_TRENDS')">S13M7 - Trends over time</li>
+        <li onclick="showVideo('Understanding relationships in your data', 'S13M8_RELATIONSHIPS')">S13M8 - Understanding relationships in your data</li>
+      </ul>
+    </div>
+  </aside>
 
+  <main>
+    <div class="video-box">
+      <h2 id="video-title">Select a lesson to start learning</h2>
+      <iframe id="video-frame" src="" allowfullscreen></iframe>
+      <div id="video-duration" style="margin-top:10px;color:#555;font-size:14px;"></div>
+      <div class="notes-resources" style="margin-top:20px;">
+        <h3>Notes and Resources</h3>
+        <textarea id="user-notes" placeholder="Write your notes here..." style="width:100%;height:60px;margin-bottom:10px;"></textarea>
+        <div>
+          <input type="text" id="custom-link" placeholder="Paste your own video link here" style="width:70%;padding:6px;">
+          <button onclick="uploadCustomLink()" style="padding:6px 12px;margin-left:8px;">Upload Link</button>
+        </div>
+        <div id="resource-list" style="margin-top:10px;"></div>
+      </div>
+    </div>
+    <div class="progress-box" style="max-width:700px;margin:auto;margin-top:30px;background:#fff;padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.07);">
+      <h3>Course Progress</h3>
+      <div id="progress-bar" style="background:#e3e7fe;border-radius:6px;height:18px;width:100%;margin-bottom:10px;overflow:hidden;">
+        <div id="progress-fill" style="background:#2a3cff;height:100%;width:0%;transition:width 0.4s;"></div>
+      </div>
+      <div id="progress-text" style="font-size:15px;color:#333;"></div>
+    </div>
+  </main>
+
+  <script>
+    // Video data with durations and default links
+    const videoData = {
+      'LLM_FOUNDATIONS_1': {
+        duration: '12:34',
+        defaultLink: 'https://www.youtube.com/embed/TvS1_Rnz8go?si=gWCDAs2SmwVur2tZ'
+      },
+      'LLM_FOUNDATIONS_2': { duration: '10:21' },
+      'S2M1_PROMPT': { duration: '8:45' },
+      'S2M2_BULLETPROOF': { duration: '9:30' },
+      'S2M3_GOALS': { duration: '7:50' },
+      'S2M4_CONTEXT': { duration: '6:40' },
+      'S2M5_ACTIONS': { duration: '5:55' },
+      'S2M6_FORMATTING': { duration: '6:10' },
+      'S3M1_FOLLOWUP': { duration: '8:00' },
+      'S3M2_ANALYZING': { duration: '7:20' },
+      'S3M3_UNDERSTANDING': { duration: '6:30' },
+      'S3M4_EXPANDING': { duration: '7:10' },
+      'S4M1_INTRO': { duration: '9:00' },
+      'S4M2_STYLES': { duration: '8:15' },
+      'S4M3_KNOWLEDGE': { duration: '7:45' },
+      'S4M4_ROLES': { duration: '6:50' },
+      'S13M1_INTRO': { duration: '10:00' },
+      'S13M2_VIEW': { duration: '8:30' },
+      'S13M3_COMPARE': { duration: '7:40' },
+      'S13M5_PARTS': { duration: '6:20' },
+      'S13M6_SPREADS': { duration: '7:00' },
+      'S13M7_TRENDS': { duration: '8:10' },
+      'S13M8_RELATIONSHIPS': { duration: '9:05' }
+    };
+
+    // Get all video IDs
+    const allVideoIds = Object.keys(videoData);
+
+    // Load progress from localStorage
+    let watchedVideos = JSON.parse(localStorage.getItem('watchedVideos') || '{}');
+    let userNotes = JSON.parse(localStorage.getItem('userNotes') || '{}');
+    let customLinks = JSON.parse(localStorage.getItem('customLinks') || '{}');
+
+    function showVideo(title, videoId) {
+      document.getElementById('video-title').innerText = title;
+      let link = customLinks[videoId] || videoData[videoId]?.defaultLink || `https://www.youtube.com/embed/${videoId}`;
+      document.getElementById('video-frame').src = link;
+      document.getElementById('video-duration').innerText = videoData[videoId]?.duration ? `Duration: ${videoData[videoId].duration}` : '';
+      // Highlight active
+      const items = document.querySelectorAll('li');
+      items.forEach(el => el.classList.remove('active'));
+      event.target.classList.add('active');
+      // Mark as watched
+      watchedVideos[videoId] = true;
+      localStorage.setItem('watchedVideos', JSON.stringify(watchedVideos));
+      updateProgress();
+      // Load notes
+      document.getElementById('user-notes').value = userNotes[videoId] || '';
+      document.getElementById('user-notes').oninput = function() {
+        userNotes[videoId] = this.value;
+        localStorage.setItem('userNotes', JSON.stringify(userNotes));
+      };
+      // Show uploaded link
+      document.getElementById('custom-link').value = customLinks[videoId] || '';
+      // Show resources (if any)
+      document.getElementById('resource-list').innerHTML = customLinks[videoId] ? `<div>Custom video link: <a href="${customLinks[videoId]}" target="_blank">${customLinks[videoId]}</a></div>` : '';
+    }
+
+    function uploadCustomLink() {
+      const activeLi = document.querySelector('li.active');
+      if (!activeLi) return alert('Select a lesson first!');
+      const videoId = getVideoIdFromLi(activeLi);
+      const link = document.getElementById('custom-link').value.trim();
+      if (!link) return alert('Please enter a link.');
+      customLinks[videoId] = link;
+      localStorage.setItem('customLinks', JSON.stringify(customLinks));
+      showVideo(activeLi.innerText, videoId);
+    }
+
+    function getVideoIdFromLi(li) {
+      const onclick = li.getAttribute('onclick');
+      const match = onclick.match(/'([^']+)', '([^']+)'/);
+      return match ? match[2] : '';
+    }
+
+    function updateProgress() {
+      const watchedCount = allVideoIds.filter(id => watchedVideos[id]).length;
+      const percent = Math.round((watchedCount / allVideoIds.length) * 100);
+      document.getElementById('progress-fill').style.width = percent + '%';
+      document.getElementById('progress-text').innerText = `${watchedCount} of ${allVideoIds.length} lessons completed (${percent}%)`;
+    }
+
+    // On page load, show progress
+    updateProgress();
+  </script>
+</body>
+</html>
